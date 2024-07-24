@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const images = [
     //images used for test purposes
-    "background-upper.png",
-    "image2 (2).png",
-    "image2.jpg",
-    "image2.png",
+    "images/background-upper.png",
+    "images/image2 (2).png",
+    "images/image2.jpg",
+    "images/image2.png",
   ];
 
   let currentIndex = 0;
@@ -82,13 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
       position: "Chairman, Dubai Free Zones Council",
       description:
         "The Dubai Free Zones Council (DFZC) aims to drive the development of free zones in Dubai in order to attract investments and create an enabling environment for boosting diverse areas of the nation.",
-      image: "Council member.png",
+      image: "images/Council member.png",
     },
     {
       name: "Lorem Ipsum",
       position: "Chairman, of the Lorem Ipsum",
       description: "The Dubai Free Zones Council of Lorem Ipsums XD.",
-      image: "image2 (2).png",
+      image: "images/image2 (2).png",
     },
     // Add more member objects here...
   ];

@@ -10,7 +10,7 @@ html {
 }
 
 .main-header {
-  background-image: url("background-upper.png");
+  background-image: url("images/background-upper.png");
   background-size: cover;
   background-position: center;
   color: white;
@@ -515,7 +515,7 @@ html {
 }
 
 .economic-agenda-section {
-  background-image: url("city.png");
+  background-image: url("images/city.png");
   background-size: cover;
   background-position: center;
   padding: 40px 20px 120px;
