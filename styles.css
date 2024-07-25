@@ -22,6 +22,11 @@ html {
   position: relative;
   width: 100%;
   animation-duration: 3s;
+  min-height: 85vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .fade {
@@ -574,6 +579,11 @@ html {
   position: relative;
   filter: grayscale(100%) sepia(70%) hue-rotate(180deg); /* Adds blueish tint */
   mix-blend-mode: luminosity;
+  min-height: 65vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .economic-agenda-content {
