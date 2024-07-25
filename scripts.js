@@ -167,3 +167,68 @@ document.getElementById("scroll-to-top").addEventListener("click", function () {
     behavior: "smooth",
   });
 });
+// document.querySelectorAll(".card").forEach((card) => {
+//   let interval;
+
+//   card.addEventListener("mouseover", function () {
+//     const targetNumber = parseFloat(card.getAttribute("data-number"));
+//     const numberElement = card.querySelector(".card-number");
+//     const originalText = numberElement.textContent;
+//     const suffix = originalText.replace(/[0-9.,]+/, ""); // Extract non-numeric suffix
+//     let currentNumber = 0;
+//     const increment = targetNumber / 50; // Adjust this value for speed
+
+//     clearInterval(interval);
+//     interval = setInterval(() => {
+//       currentNumber += increment;
+//       if (currentNumber >= targetNumber) {
+//         currentNumber = targetNumber;
+//         clearInterval(interval);
+//       }
+//       numberElement.textContent = currentNumber.toFixed(2) + suffix;
+//     }, 10); // Adjust this value for smoothness
+//   });
+// });
+
+document.querySelectorAll(".card").forEach((card) => {
+  let interval;
+
+  function startCounting(isCountingUp) {
+    const targetNumber = parseFloat(card.getAttribute("data-number"));
+    const steps = parseInt(card.getAttribute("data-steps")) || 100; // Default to 100 steps if not specified
+    const increment = targetNumber / steps;
+    const isFloat = targetNumber % 1 !== 0;
+    const numberElement = card.querySelector(".card-number");
+    const originalText = numberElement.textContent;
+    const suffix = originalText.replace(/[0-9.,]+/, ""); // Extract non-numeric suffix
+    let currentNumber = isCountingUp ? 0 : targetNumber;
+
+    clearInterval(interval);
+    interval = setInterval(() => {
+      if (isCountingUp) {
+        currentNumber += increment;
+        if (currentNumber >= targetNumber) {
+          currentNumber = targetNumber;
+          clearInterval(interval);
+        }
+      } else {
+        currentNumber -= increment;
+        if (currentNumber <= 0) {
+          currentNumber = 0;
+          clearInterval(interval);
+        }
+      }
+      numberElement.textContent =
+        (isFloat ? currentNumber.toFixed(2) : Math.floor(currentNumber)) +
+        suffix;
+    }, 20); // Adjust this value for smoothness
+  }
+
+  card.addEventListener("mouseover", function () {
+    startCounting(true);
+  });
+
+  card.addEventListener("mouseout", function () {
+    startCounting(false);
+  });
+});
