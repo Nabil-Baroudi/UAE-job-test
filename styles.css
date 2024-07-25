@@ -1314,7 +1314,7 @@ html {
   right: 40px;
   background: none;
   border: none;
-  padding-bottom: 35vh;
+  margin-bottom: 35vh;
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
