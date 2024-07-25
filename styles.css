@@ -92,16 +92,15 @@ html {
 
 .nav-buttons button,
 .right-buttons button {
+  position: relative;
   background: none;
   border: none;
-  color: white;
+  padding: 10px 20px;
+  font-size: 13px;
   cursor: pointer;
-  margin: 0 10px;
-  padding: 5px 0;
-  position: relative;
-  font-family: "Rubik", sans-serif;
-  font-weight: 400;
-  transition: width 0.2 ease-in-out;
+  outline: none;
+  color: white;
+  transition: color 0.3s;
 }
 
 .nav-buttons button::after,
@@ -110,16 +109,19 @@ html {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: white;
-  transition: width 0.1 ease;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #ffffff;
+  transition: width 0.4s ease;
 }
 
 .nav-buttons button:hover::after,
 .right-buttons button:hover::after,
 .nav-buttons button.active::after {
-  width: 100%;
+  width: 80%;
+  left: 8px;
+  background: white;
 }
 
 .right-buttons {
@@ -1460,7 +1462,6 @@ html {
   margin: 0 10px;
 }
 
-button,
 .about-us-button,
 .all-members-button,
 .agenda-button,
@@ -1468,7 +1469,6 @@ button,
   transition: opacity 0.3s ease;
 }
 
-button:hover,
 .about-us-button:hover,
 .all-members-button:hover,
 .see-more-button:hover,
