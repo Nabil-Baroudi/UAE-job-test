@@ -1321,6 +1321,7 @@ html {
 
 #scroll-to-top:hover {
   opacity: 0.4;
+  transform: scale(1.2);
 }
 
 #scroll-to-top img {
