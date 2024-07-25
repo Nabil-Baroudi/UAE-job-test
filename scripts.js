@@ -105,14 +105,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     const readMore = document.querySelector(".read-more");
 
-    // Add fade-out class
     councilImage.classList.add("fade-out");
     councilMemberTitle.classList.add("fade-out");
     councilMemberPosition.classList.add("fade-out");
     councilMemberDescription.classList.add("fade-out");
     readMore.classList.add("fade-out");
 
-    // After fade-out, update content and add fade-in class
     setTimeout(() => {
       councilImage.src = member.image;
       councilMemberTitle.textContent = member.name;
@@ -131,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
       councilMemberDescription.classList.add("fade-in");
       readMore.classList.add("fade-in");
 
-      // Remove fade-in class after animation duration
       setTimeout(() => {
         councilImage.classList.remove("fade-in");
         councilMemberTitle.classList.remove("fade-in");
@@ -141,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1500);
 
       memberCounter.textContent = `(${index + 1}/${totalMembers})`;
-    }, 1500); // Match this timeout with the fade-out duration
+    }, 1500);
   }
 
   leftArrow.addEventListener("click", function () {
@@ -157,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(function () {
     currentMember = (currentMember + 1) % members.length;
     updateMember(currentMember);
-  }, 5000);
+  }, 3500);
 
   updateMember(currentMember);
 });
