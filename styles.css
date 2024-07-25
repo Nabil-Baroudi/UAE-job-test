@@ -1464,15 +1464,15 @@ html {
 
 .about-button,
 .all-members-button,
-.agenda-button,
-.submit-button {
+.submit-button,
+.agenda-button {
   transition: opacity 0.3s ease;
 }
 
 .about-button:hover,
 .all-members-button:hover,
-.see-more-button:hover,
-.submit-button:hover {
+.submit-button:hover,
+.agenda-button:hover {
   opacity: 0.7;
 }
 
