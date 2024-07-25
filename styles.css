@@ -7,6 +7,7 @@ html {
   height: 100%;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .main-header {
@@ -17,9 +18,51 @@ html {
   height: 85vh;
   display: flex;
   flex-direction: column;
-  transition: background-image 0.5s ease-in-out;
+  transition: background-image 1s ease-in-out;
   position: relative;
   width: 100%;
+  animation-duration: 3s;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 3s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fading animation */
+.fade-in {
+  animation: fadeIn 1.5s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
 }
 
 .navbar {
@@ -58,6 +101,7 @@ html {
   position: relative;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
+  transition: width 0.2 ease-in-out;
 }
 
 .nav-buttons button::after,
@@ -69,7 +113,7 @@ html {
   bottom: 0;
   left: 0;
   background-color: white;
-  transition: width 0.3s ease;
+  transition: width 0.1 ease;
 }
 
 .nav-buttons button:hover::after,
@@ -212,7 +256,7 @@ html {
   height: 3px;
   background-color: rgba(255, 255, 255, 0.5);
   margin: 0 3.5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .scroll-bars span.active {
@@ -293,6 +337,12 @@ html {
   border-radius: 20px;
   overflow: hidden;
   color: white;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  opacity: 1;
 }
 
 .card-content {
@@ -305,8 +355,8 @@ html {
 }
 
 .card-number {
-  font-size: 40px;
-  margin: 0;
+  font-size: 35px;
+  margin: 20px;
   line-height: 1;
 }
 
@@ -548,12 +598,13 @@ html {
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  width: 100%;
+  width: 80%;
+  height: 90%;
 }
 
 .quote-mark {
-  width: 41px;
-  height: 41.02px;
+  width: 2vw;
+  height: auto;
   position: absolute;
 }
 
@@ -578,8 +629,8 @@ html {
 .quote-text {
   font-family: "Dubai", sans-serif;
   font-weight: 400;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 1vw;
+  line-height: 1.5;
   color: rgb(0, 0, 0);
   text-align: left;
   margin-bottom: 20px;
@@ -588,11 +639,11 @@ html {
 .quote-author {
   font-family: "Dubai", sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 28px;
+  font-size: 1vw;
+  line-height: 1.4;
   color: #3d7088;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-bottom: 20px;
 }
 
@@ -634,6 +685,25 @@ html {
   transform: translateY(-50%);
 }
 
+@media (max-width: 768px) {
+  .economic-agenda-title {
+    font-size: 8vw; /* Adjusted for smaller screens */
+  }
+
+  .quote-text {
+    font-size: 4vw; /* Adjusted for smaller screens */
+  }
+
+  .quote-author {
+    font-size: 3.5vw; /* Adjusted for smaller screens */
+  }
+
+  .agenda-button {
+    width: 180px; /* Adjusted for smaller screens */
+    height: 35px; /* Adjusted for smaller screens */
+    padding-left: 50px; /* Adjusted for smaller screens */
+  }
+}
 .freezone-authorities-section {
   background-color: white;
   padding: 0px 20px;
@@ -680,6 +750,19 @@ html {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0;
+  flex-wrap: wrap;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  transition: opacity 0.3s ease;
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form select:hover {
+  opacity: 0.3;
 }
 
 .map-container {
@@ -688,6 +771,7 @@ html {
   height: 0;
   padding-bottom: 60%;
   overflow: hidden;
+  flex-grow: 1;
 }
 
 .map-image {
@@ -704,7 +788,7 @@ html {
   position: absolute;
   width: 30px;
   height: 52px;
-  top: 30.5%;
+  top: 30%;
   left: 54.6%;
   transform: translate(-50%, -50%);
   border-radius: 20px 20px 0 0;
@@ -712,13 +796,14 @@ html {
 
 .contact-form-container {
   width: 40%;
-  padding: 40px 80px;
+  padding: 40px 20px; /* Adjusted padding for better spacing */
+  box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
 .contact-title {
   font-weight: 600;
   font-size: 64px;
-  line-height: 54px;
+  line-height: 1.2; /* Adjusted line-height */
   text-align: center;
   margin-bottom: 30px;
 }
@@ -734,22 +819,15 @@ html {
 }
 
 .contact-form input,
-.contact-form textarea {
-  width: 80%;
-  height: 48px;
-  border-radius: 15px;
-  border: 1px solid #ccc;
-  padding: 0 15px;
-  font-size: 16px;
-}
-
+.contact-form textarea,
 .contact-form select {
-  width: 87%;
+  width: 100%; /* Full width */
   height: 48px;
   border-radius: 15px;
   border: 1px solid #ccc;
   padding: 0 15px;
   font-size: 16px;
+  box-sizing: border-box; /* Include padding in the width */
 }
 
 .contact-form textarea {
@@ -766,7 +844,7 @@ html {
   color: white;
   border: none;
   border-radius: 29px;
-  width: 87%;
+  width: 100%; /* Full width */
   height: 40px;
   font-size: 12px;
   font-weight: bold;
@@ -798,6 +876,60 @@ html {
   line-height: 18px;
   margin: 0;
   padding-bottom: 5px;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 1024px) {
+  .contact-section {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .map-container {
+    width: 100%; /* Full width for map container */
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+  }
+
+  .contact-form-container {
+    width: 100%; /* Full width for form container */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .contact-title {
+    font-size: 48px; /* Smaller font size for title */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 36px; /* Further reduced font size for smaller screens */
+  }
+
+  .contact-form-container {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form select,
+  .submit-button {
+    width: 100%; /* Full width for form elements */
+  }
+
+  .contact-info {
+    flex-direction: column; /* Stack info items vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 24px; /* Smaller font size for very small screens */
+  }
+
+  .contact-info p {
+    font-size: 12px; /* Smaller font size for info text */
+  }
 }
 
 /* ========================================================== */
@@ -1131,6 +1263,11 @@ html {
   color: black;
   text-decoration: none;
   font-size: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-list a:hover {
+  opacity: 0.4;
 }
 
 .contact-info2 {
@@ -1177,6 +1314,11 @@ html {
   border: none;
   padding-bottom: 35vh;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+#scroll-to-top:hover {
+  opacity: 0.4;
 }
 
 #scroll-to-top img {
@@ -1188,7 +1330,29 @@ html {
   width: 85%;
   height: 1px;
   background-color: #b7c6dc;
-  margin: 20px auto 0;
+  margin: 20px auto;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.footer-info p {
+  margin: 20px;
+  font-size: 12px;
+  color: #333;
+}
+
+.copyright {
+  text-align: left;
+}
+
+.terms {
+  text-align: right;
 }
 
 @media (max-width: 768px) {
@@ -1290,8 +1454,24 @@ html {
   height: 20px;
 }
 .separator {
-  width: 1px; /* Width of the separator */
-  height: 40px; /* Height of the separator */
-  background-color: #d3d3d3; /* Grey color for the separator */
-  margin: 0 10px; /* Margin for spacing */
+  width: 1px;
+  height: 40px;
+  background-color: #d3d3d3;
+  margin: 0 10px;
+}
+
+button,
+.about-us-button,
+.all-members-button,
+.agenda-button,
+.submit-button {
+  transition: opacity 0.3s ease;
+}
+
+button:hover,
+.about-us-button:hover,
+.all-members-button:hover,
+.see-more-button:hover,
+.submit-button:hover {
+  opacity: 0.7;
 }

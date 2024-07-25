@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+//main header section
 document.addEventListener("DOMContentLoaded", function () {
   const mainHeader = document.querySelector(".main-header");
   const scrollBars = document.querySelectorAll(".scroll-bars span");
@@ -19,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const rightArrow = document.querySelector(".right-arrow");
 
   const images = [
-    //images used for test purposes
     "images/background-upper.png",
     "images/image2 (2).png",
     "images/image2.jpg",
@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateImage() {
     mainHeader.style.backgroundImage = `url('${images[currentIndex]}')`;
+    mainHeader.classList.add("fade");
+    setTimeout(() => mainHeader.classList.remove("fade"), 1500);
     updateScrollBars();
   }
 
@@ -49,10 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateImage();
   }
 
-  // Set up interval for automatic image change
-  let imageInterval = setInterval(nextImage, 10000);
+  let imageInterval = setInterval(nextImage, 5000);
 
-  // Set up arrow navigation
   leftArrow.addEventListener("click", function () {
     clearInterval(imageInterval);
     prevImage();
@@ -65,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
     imageInterval = setInterval(nextImage, 10000);
   });
 
-  // Initial setup
   updateImage();
 });
 
+//councail members section.
 document.addEventListener("DOMContentLoaded", function () {
   const leftArrow = document.querySelector(".nav-arrow-left");
   const rightArrow = document.querySelector(".nav-arrow-right");
@@ -95,13 +95,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateMember(index) {
     const member = members[index];
-    document.querySelector(".council-image").src = member.image;
-    document.querySelector(".council-member-title").textContent = member.name;
-    document.querySelector(".council-member-position").textContent =
-      member.position;
-    document.querySelector(".council-member-description").textContent =
-      member.description;
-    memberCounter.textContent = `(${index + 1}/${totalMembers})`;
+    const councilImage = document.querySelector(".council-image");
+    const councilMemberTitle = document.querySelector(".council-member-title");
+    const councilMemberPosition = document.querySelector(
+      ".council-member-position"
+    );
+    const councilMemberDescription = document.querySelector(
+      ".council-member-description"
+    );
+    const readMore = document.querySelector(".read-more");
+
+    // Add fade-out class
+    councilImage.classList.add("fade-out");
+    councilMemberTitle.classList.add("fade-out");
+    councilMemberPosition.classList.add("fade-out");
+    councilMemberDescription.classList.add("fade-out");
+    readMore.classList.add("fade-out");
+
+    // After fade-out, update content and add fade-in class
+    setTimeout(() => {
+      councilImage.src = member.image;
+      councilMemberTitle.textContent = member.name;
+      councilMemberPosition.textContent = member.position;
+      councilMemberDescription.textContent = member.description;
+
+      councilImage.classList.remove("fade-out");
+      councilMemberTitle.classList.remove("fade-out");
+      councilMemberPosition.classList.remove("fade-out");
+      councilMemberDescription.classList.remove("fade-out");
+      readMore.classList.remove("fade-out");
+
+      councilImage.classList.add("fade-in");
+      councilMemberTitle.classList.add("fade-in");
+      councilMemberPosition.classList.add("fade-in");
+      councilMemberDescription.classList.add("fade-in");
+      readMore.classList.add("fade-in");
+
+      // Remove fade-in class after animation duration
+      setTimeout(() => {
+        councilImage.classList.remove("fade-in");
+        councilMemberTitle.classList.remove("fade-in");
+        councilMemberPosition.classList.remove("fade-in");
+        councilMemberDescription.classList.remove("fade-in");
+        readMore.classList.remove("fade-in");
+      }, 1500);
+
+      memberCounter.textContent = `(${index + 1}/${totalMembers})`;
+    }, 1500); // Match this timeout with the fade-out duration
   }
 
   leftArrow.addEventListener("click", function () {
@@ -114,13 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
     updateMember(currentMember);
   });
 
-  // Automatic looping functionality
   setInterval(function () {
     currentMember = (currentMember + 1) % members.length;
     updateMember(currentMember);
   }, 5000);
 
-  // Initial setup
   updateMember(currentMember);
 });
 
