@@ -1462,14 +1462,14 @@ html {
   margin: 0 10px;
 }
 
-.about-us-button,
+.about-button,
 .all-members-button,
 .agenda-button,
 .submit-button {
   transition: opacity 0.3s ease;
 }
 
-.about-us-button:hover,
+.about-button:hover,
 .all-members-button:hover,
 .see-more-button:hover,
 .submit-button:hover {
