@@ -222,3 +222,28 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(card);
   });
 });
+// =======================sliding titles===========================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const slideInElements = document.querySelectorAll(".hidden");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("slide-in-left");
+        entry.target.classList.remove("hidden");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  slideInElements.forEach((element) => {
+    observer.observe(element);
+  });
+});

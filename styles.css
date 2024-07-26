@@ -735,6 +735,18 @@ html {
   margin-bottom: 80px;
 }
 
+@media (max-width: 768px) {
+  .freezone-authorities-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .freezone-authorities-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
 .logo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -968,7 +980,7 @@ html {
     max-width: 400px;
     aspect-ratio: 1 / 1.5;
     height: 50px;
-    padding-bottom: 60%;
+    padding-bottom: 30%;
     margin: 0 auto;
   }
 }
@@ -1006,10 +1018,20 @@ html {
   }
 
   .card {
-    padding-bottom: 60%;
+    padding-bottom: 100%;
   }
   .cards-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card-number {
+    font-size: 1rem;
+  }
+  .card-text {
+    font-size: 0.7rem;
+  }
+  .card-text2 {
+    font-size: 0.1rem;
   }
 
   .council-layout {
@@ -1083,7 +1105,10 @@ html {
   .card {
     width: 100%;
     height: auto;
-    padding-bottom: 60%;
+    padding-bottom: 40%;
+  }
+  .card-text2 {
+    font-size: 1rem;
   }
 
   .about-layout {
@@ -1162,6 +1187,100 @@ html {
 
   .submit-button {
     width: 100%;
+  }
+}
+
+/* ================council section queries=================== */
+
+@media (max-width: 1200px) {
+  .council-title {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .council-member-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .council-navigation {
+    align-items: center;
+    flex-direction: column;
+  }
+  .member-counter {
+    flex-direction: column;
+    align-items: center;
+  }
+  .council-image {
+    width: 60vw;
+    height: 80vh;
+  }
+  .navigation-arrows {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .council-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .council-title {
+    font-size: 1.5rem;
+  }
+
+  .council-navigation {
+    flex-direction: column;
+  }
+
+  .navigation-arrows {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .council-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .council-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .council-member-title {
+    text-align: center;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .council-title {
+    font-size: 1.2rem;
+  }
+
+  .council-navigation .member-counter {
+    font-size: 1rem;
+  }
+
+  .navigation-arrows {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .council-image {
+    width: 100%; /* Ensure images fit the container */
+  }
+
+  .council-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .council-member-title {
+    text-align: center;
+    width: 100%; /* Ensure the title takes full width */
   }
 }
 @media (max-width: 768px) {
@@ -1497,4 +1616,27 @@ html {
 
 .footer-info .terms:hover {
   opacity: 0.3;
+}
+
+/* ===================sliding titles=================== */
+
+/* Animation for sliding in from the left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s forwards;
+}
+
+/* Initially hide the elements */
+.hidden {
+  opacity: 0;
 }
